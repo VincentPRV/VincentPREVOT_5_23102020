@@ -1,5 +1,5 @@
 const productDetail = document.querySelector('.product__detail');
-const button = document.querySelector('product__footer__btn');
+const button = document.querySelector('.product__footer__btn');
 
 /* API REQUEST  */
 
