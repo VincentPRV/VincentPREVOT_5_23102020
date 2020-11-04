@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/f53c7949c7.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/produit.css">
+    <link rel="stylesheet" href="css/panier.css">
     <title>Orinoco - page produit</title>
 </head>
 <body>
@@ -22,9 +22,14 @@
         </div>
     </header>
     <main id="main_wrapper">
-        <div class="produit__detail">
+        <div id="empty">
+            <h2>Votre panier est vide !</h2>
         </div>
-        <div class="produit__cmd">
+        <table class="table">
+        </table>
+        <div id="ordre">
+            <button id="ordre__validation">Valider la commande</button>
+            <button id="ordre__clear">Effacer le panier</button>
         </div>
     </main>
     <footer>
@@ -36,6 +41,6 @@
             </ul>
         </div>
     </footer>
-    <script src="js/produit.js"></script>
+    <script src="js/panier.js"></script>
 </body>
 </html>

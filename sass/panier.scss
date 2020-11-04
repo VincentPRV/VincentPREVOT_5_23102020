@@ -1,0 +1,215 @@
+$color-primary: #f3e9f1;
+$color-secondary: #e58a0c;
+$color-border: #37474F;
+$color-tertiary: #8f5bfe;
+$color-table: #B0BEC5;
+
+
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin crdSize {
+    width: 400px;
+    height: 400px;
+}
+
+@mixin PrdSize {
+    width: 800px;
+    height: 800px;
+}
+@mixin btnOrder {
+    height: 50px;
+    width: 200px;
+    border-radius: 20px;
+    margin: 50px;
+    border-style: none;
+    font-family: 'meghans';
+    font-size: 25px;
+}
+@mixin btnPanier {
+    font-size: 30px;
+    border-radius: 50%;    
+    @include center;
+    overflow: hidden;
+    color: white;
+}
+@mixin panierParams {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+@mixin crdBorder {
+    border: $color-border solid 1px;
+}
+
+@mixin gras {
+    font-weight: bold;
+}
+
+@mixin linearGradient {
+    background: linear-gradient($color-secondary, $color-tertiary);
+}
+
+@mixin tableBrd {
+    border-top: #B0BEC5 1px solid;
+    border-bottom: #B0BEC5 1px solid;
+}
+
+@mixin ctrText {
+    width: 100%;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-align: center;
+}
+@font-face {
+    font-family: 'meghans';
+    src: url('../Fonts/meghansfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'meghans';
+    display: flex;
+    flex-direction: column;
+}
+ 
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: $color-primary;
+}
+ 
+.nav {
+    font-size: 40px;
+    &__ul{
+        display: flex;
+        list-style-type: none;
+        li{
+            margin: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    }
+}
+
+#main_wrapper{
+    @include center;
+    flex-direction: column;
+}
+
+.table {
+    padding: 50px; 
+    tr{
+        @include center;
+        height: 150px;
+        margin-bottom: 15px;
+        padding: 5px;
+        border-top: $color-table solid 1px; 
+        border-bottom: $color-table solid 1px;
+    }      
+}
+
+.table__th {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 200px;
+    height: 100%;
+    &__name {
+        font-size: 30px;
+        margin: auto;
+    }
+
+    &__img {
+        height: 120px;
+    }
+}
+
+.table__td {
+    
+    &__info{
+        width: 150px;
+        @include panierParams;
+    }
+    &__option{
+        @include ctrText;
+    }
+    &__qte {
+        @include ctrText;
+    }
+    &__prix{
+        width: 125px;
+        @include panierParams;
+    }
+    &__total{
+        @include ctrText;
+        font-weight: bold;
+    }
+    &__montant{
+        @include ctrText;
+        text-transform: uppercase;
+    }
+    &__buttons{
+        width: 250px;
+        @include panierParams;
+    }
+    &__btnClear{
+        @include btnPanier;
+        margin-bottom: 10px;
+        background-color: red;
+       
+    }
+    &__btnProduct{
+        @include btnPanier;
+        @include linearGradient;
+        margin-top: 10px;
+    }
+}
+
+#ordre{
+    width: 100%;
+    height: 200px;
+    @include center;
+    &__validation {
+        @include linearGradient;
+        @include btnOrder;
+        color: white;
+        border-style: none;
+    }
+    &__clear {
+        @include btnOrder;
+        color: black;
+        background-color: $color-primary;
+        
+    }
+}
+
+
+.footer_info {
+    background-color: black;
+    color: white;
+    display: flex;
+    height: 200px;
+    font-family: sans-serif;
+    ul {
+        list-style-type: none;
+        line-height: 30px;
+        a {
+            text-decoration: none;
+            color: $color-primary;
+        }
+    }
+    img {
+        width: 125px;
+    }
+}

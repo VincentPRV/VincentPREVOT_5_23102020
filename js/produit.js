@@ -3,6 +3,7 @@ const productDetail = document.querySelector('.produit__detail');
 const $cmd = document.querySelector('.produit__cmd');
 
 
+
 const params = new URLSearchParams(urlPage);
 let id;
 
@@ -72,8 +73,6 @@ const fetchTeddies = async () => {      // récupération des données serveur p
             $select.appendChild($option);
         }
 
-        /* ok */
-
         const $choice = document.createElement('select');
         const $qte = document.createElement('div');
         const $textQte = document.createElement('p');
@@ -88,6 +87,7 @@ const fetchTeddies = async () => {      // récupération des données serveur p
             $number.text = i;
             $choice.appendChild($number);
         }
+        
         const $total = document.createElement('p');
         const $divTotal = document.createElement('div');
         $divTotal.className = 'produit__cmd__total';
@@ -95,8 +95,10 @@ const fetchTeddies = async () => {      // récupération des données serveur p
         $cmd.appendChild($divTotal);
         $total.innerText = 'total de votre commande : 0 €';
         $choice.addEventListener('change', function() {
-            const montant = $choice.value * teddy.price / 100 + " €";
-            $total.innerText = 'total de votre commande : ' + montant;
+            const $montant = $choice.value * teddy.price / 100 + " €";
+            $total.innerText = 'total de votre commande : ' + $montant;
+           
+            
         })
         
         
@@ -106,18 +108,21 @@ const fetchTeddies = async () => {      // récupération des données serveur p
         $cmd.appendChild($divBtn);
         $divBtn.className = 'produit__cmd__btn'
         $btn.innerText = 'Ajouter à mon panier';     
-        $btn.addEventListener("click", function(){
-        document.location.href = 'produit.html?id=' + teddy._id;
-    });
-        
-
-        
-
-
-
-        
-    } else {  
+        $btn.addEventListener("click", function (){
+            let products = [];
+            if($choice.value > 0){
+                 if(localStorage.getItem('products')){
+                products = JSON.parse(localStorage.getItem('products'));
+                
+            }
+            products.push({productId : id, image : teddy.imageUrl, name : teddy.name, couleur : $select.value, total : $choice.value * teddy.price / 100, quantite : $choice.value});
+            localStorage.setItem('products', JSON.stringify(products));
+            localStorage.getItem('products');
+            document.location.href = 'panier.html';
+            }  else alert("Veuillez choisir la quantité pour passer commande");
+        }
+        );
     }
- }
+}
 
 
