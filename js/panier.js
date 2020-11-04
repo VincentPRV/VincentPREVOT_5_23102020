@@ -1,5 +1,7 @@
 const $wrapper = document.querySelector('#main_wrapper');
 const $table = document.querySelector('.table');
+const arrayTot = [];
+
 
 const fetchTeddies = async () => {
     let teddies = await fetch('http://localhost:3000/api/teddies')
@@ -15,7 +17,6 @@ const addProducts = () => {
         let products = JSON.parse(localStorage.getItem('products'));
         for(let i = 0; i < products.length; i++) {   // création d'une boucle équivalente aux nombres de produit //
             const product = products[i];
-
             const $tableTr = document.createElement('tr');
             const $tableTh = document.createElement('th');
             const $tableP = document.createElement('p');
@@ -48,6 +49,7 @@ const addProducts = () => {
             const $tdTotal = document.createElement('p');
             $tdPrix.innerText = 'Prix total';
             $tdTotal.innerText = product.total + ' €';
+
             $tableTr.appendChild($tableTd2);
             $tableTd2.appendChild($tdPrix);
             $tableTd2.appendChild($tdTotal);
@@ -70,19 +72,35 @@ const addProducts = () => {
             $btnProduct.addEventListener("click", function(){
                 document.location.href = 'produit.html?id=' + product.productId;
             });
-            const $clear = document.querySelector('#ordre__clear');
-            $clear.addEventListener("click", function(){
-                localStorage.clear();
-                alert("Votre pannier est maintenant vide !")
-                document.location.href = 'panier.html'
-            });
+            
+        
+            
         /*$btnClear.click(function(){
             let productId = product.productId;
             let storageProducts = JSON.parse(localStorage.getItem('products'));
             let products = storageProducts.filter(product => product.productId !== productId );
             localStorage.setItem('products', JSON.stringify(products));
-        });*/
-        }
-        console.log(products)
+        });
+
+        $divTotal = document.createElement('div');
+            $smTotal = document.createElement('p');
+            $wrapper.appendChild($divTotal)
+            $divTotal.appendChild($smTotal)
+            $total = document.querySelectorAll('.table__td__montant')
+            $smTotal.innerText = 'Montant total du panier : ' + montant + ' €';
+
+        */
+       
+       }
+        
 }
 addProducts();
+
+const $clear = document.querySelector('#ordre__clear');
+    $clear.addEventListener("click", function(){
+    localStorage.clear();
+    alert("Votre pannier est maintenant vide !")
+    document.location.href = 'panier.html'
+});
+
+

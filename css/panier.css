@@ -30,7 +30,15 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; }
+  flex-direction: column;
+  height: 1000px; }
+
+#empty {
+  height: 300px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 .table {
   padding: 50px; }

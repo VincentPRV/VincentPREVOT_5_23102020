@@ -105,6 +105,13 @@ header {
 #main_wrapper{
     @include center;
     flex-direction: column;
+    height: 1000px;
+}
+
+#empty{
+    height: 300px;
+    width: 400px;
+    @include center;
 }
 
 .table {
