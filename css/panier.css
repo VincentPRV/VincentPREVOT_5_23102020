@@ -171,4 +171,82 @@ header {
   .footer_info img {
     width: 125px; }
 
+#formulaire {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  flex-direction: column;
+  background-color: #F5F5F5;
+  border-radius: 20px; }
+  #formulaire__nom {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: auto; }
+    #formulaire__nom label {
+      height: 100%;
+      width: 25%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+    #formulaire__nom span .far {
+      color: green;
+      font-size: 25px;
+      margin-left: 50px; }
+  #formulaire__prenom {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center; }
+    #formulaire__prenom label {
+      height: 100%;
+      width: 25%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+    #formulaire__prenom span .far {
+      color: green;
+      font-size: 25px;
+      margin-left: 50px; }
+  #formulaire__email {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: auto; }
+    #formulaire__email label {
+      height: 100%;
+      width: 25%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+    #formulaire__email span .far {
+      color: green;
+      font-size: 25px;
+      margin-left: 50px; }
+  #formulaire__tel {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: auto; }
+    #formulaire__tel label {
+      height: 100%;
+      width: 25%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+    #formulaire__tel span .far {
+      color: green;
+      font-size: 25px;
+      margin-left: 50px; }
+  #formulaire form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%; }
+  #formulaire input {
+    margin: 10px; }
+
 /*# sourceMappingURL=panier.css.map */

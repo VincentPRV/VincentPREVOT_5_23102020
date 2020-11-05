@@ -104,3 +104,75 @@ const $clear = document.querySelector('#ordre__clear');
 });
 
 
+let formValid = document.getElementById('bouton_envoi');
+let nom = document.getElementById('nom');
+let prenom = document.getElementById('prenom');
+let email = document.getElementById('mail');
+let tel = document.getElementById('tel');
+let missNom = document.getElementById('missNom');
+let missPrenom = document.getElementById('missPrenom');
+let missEmail = document.getElementById('missEmail');
+let missTel = document.getElementById('missTel');
+let nomValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+let prenomValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+let emailValid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+let telValid = /^0\d(\s|-)?(\d{2}(\s|-)?){4}$/;
+            
+formValid.addEventListener('click', validation);
+            
+function validation(event){
+    //Si le champ nom est vide
+    if (nom.validity.valueMissing){
+        event.preventDefault();
+        missNom.textContent = 'Nom manquant';
+        missNom.style.color = 'red';
+    //Si le format de données est incorrect
+    }else if (nomValid.test(nom.value) == false){
+        event.preventDefault();
+        missNom.textContent = 'Format incorrect';
+        missNom.style.color = 'orange';
+    }else{
+        missNom.innerHTML = `<i class="far fa-thumbs-up"></i>`
+    }
+    //Si le champ prenom est vide
+    if (prenom.validity.valueMissing){
+        event.preventDefault();
+        missPrenom.textContent = 'Prénom manquant';
+        missPrenom.style.color = 'red';
+    //Si le format de données est incorrect
+    }else if (prenomValid.test(prenom.value) == false){
+        event.preventDefault();
+        missPrenom.textContent = 'Format incorrect';
+        missPrenom.style.color = 'orange';
+    }else{
+        missPrenom.innerHTML = `<i class="far fa-thumbs-up"></i>`
+    }
+
+    //Si le champ email est vide
+    if (email.validity.valueMissing){
+        event.preventDefault();
+        missEmail.textContent = 'e-mail manquant';
+        missEmail.style.color = 'red';
+    //Si le format de données est incorrect
+    }else if (emailValid.test(email.value) == false){
+        event.preventDefault();
+        missEmail.textContent = 'Format incorrect';
+        missEmail.style.color = 'orange';
+    }else{
+        missEmail.innerHTML = `<i class="far fa-thumbs-up"></i>`
+    }
+    //Si le champ telephone est vide
+      if (tel.validity.valueMissing){
+        event.preventDefault();
+        missTel.textContent = 'Téléphone manquant';
+        missTel.style.color = 'red';
+    //Si le format de données est incorrect
+    }else if (telValid.test(tel.value) == false){
+        event.preventDefault();
+        missTel.textContent = 'Format incorrect';
+        missTel.style.color = 'orange';
+    }else{
+        missTel.innerHTML = `<i class="far fa-thumbs-up"></i>`
+    }
+    event.preventDefault()
+}

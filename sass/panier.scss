@@ -3,7 +3,7 @@ $color-secondary: #e58a0c;
 $color-border: #37474F;
 $color-tertiary: #8f5bfe;
 $color-table: #B0BEC5;
-
+$color-form: #F5F5F5;
 
 @mixin center {
     display: flex;
@@ -220,3 +220,93 @@ header {
         width: 125px;
     }
 }
+
+
+
+#formulaire{
+    font-family: sans-serif;
+    @include center;
+    width: 500px;
+    flex-direction: column;
+    background-color: $color-form;
+    border-radius: 20px;
+    &__nom{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin: auto;
+        label{
+            height: 100%;
+            width: 25%;
+            @include center;
+        }
+        span .far {
+            color: green;
+            font-size: 25px;
+            margin-left: 50px;
+        }
+    }
+    &__prenom{
+        width: 100%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        label{
+            height: 100%;
+            width: 25%;
+            @include center;
+        }
+        span .far {
+                color: green;
+                font-size: 25px;
+                margin-left: 50px;
+        }
+    }
+    &__email{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin: auto;
+        label{
+            height: 100%;
+            width: 25%;
+            @include center;
+        }
+        span .far {
+            color: green;
+            font-size: 25px;
+            margin-left: 50px;
+        }
+    }
+    &__tel{
+        
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin: auto;
+        label{
+            height: 100%;
+            width: 25%;
+            @include center;
+        }
+        span .far {
+            color: green;
+            font-size: 25px;
+            margin-left: 50px;
+        }
+    }
+    form {
+        @include center;
+        flex-direction: column;
+        width: 100%;
+    }
+    input{
+        margin: 10px;
+    }
+}
+
+
+
+
+
+

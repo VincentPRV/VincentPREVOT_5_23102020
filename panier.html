@@ -27,10 +27,35 @@
         </div>-->
         <table class="table">
         </table>
-        <div id="ordre">
-            <button id="ordre__validation">Valider la commande</button>
+        <section id="formulaire">
+            <h2>Formulaire de renseignement</h2>
+        <form method="post" action="">
+            <div id="formulaire__nom">
+                <label for='nom'>Nom</label>
+                <input type='text' name='nom' id='nom' maxlength='20' required>
+                <span id='missNom'></span><br>              
+            </div>    
+            <div id="formulaire__prenom">
+                <label for='prenom'>Prénom</label>
+                <input type='text' name='prenom' id='prenom' maxlength='20' required>
+                <span id='missPrenom'></span><br>              
+            </div>    
+            <div id="formulaire__email">
+                <label for='mail'>e-mail</label>
+                <input type='email' name='mail' id='mail' required>
+                <span id='missEmail'></span>
+            </div>             
+            <div id="formulaire__tel">
+                <label for='tel'>Téléphone</label>
+                <input type='tel' name='tel' id='tel' required> 
+                <span id='missTel'></span>
+            </div>         
+        </form>
+        </section>
+        <section id="ordre">
+            <input id="ordre__validation" type='submit' value='Valider la commande' id='bouton_envoi'>
             <button id="ordre__clear">Effacer le panier</button>
-        </div>
+        </section>
     </main>
     <footer>
         <div class="footer_info">
