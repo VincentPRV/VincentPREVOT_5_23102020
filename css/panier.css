@@ -180,6 +180,13 @@ header {
   flex-direction: column;
   background-color: #F5F5F5;
   border-radius: 20px; }
+  #formulaire span {
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 35%; }
   #formulaire__nom {
     width: 100%;
     display: flex;
@@ -191,6 +198,8 @@ header {
       display: flex;
       justify-content: center;
       align-items: center; }
+    #formulaire__nom input {
+      width: 40%; }
     #formulaire__nom span .far {
       color: green;
       font-size: 25px;
@@ -206,6 +215,8 @@ header {
       display: flex;
       justify-content: center;
       align-items: center; }
+    #formulaire__prenom input {
+      width: 40%; }
     #formulaire__prenom span .far {
       color: green;
       font-size: 25px;
@@ -221,22 +232,43 @@ header {
       display: flex;
       justify-content: center;
       align-items: center; }
+    #formulaire__email input {
+      width: 40%; }
     #formulaire__email span .far {
       color: green;
       font-size: 25px;
       margin-left: 50px; }
-  #formulaire__tel {
+  #formulaire__ville {
     width: 100%;
     display: flex;
     align-items: center;
     margin: auto; }
-    #formulaire__tel label {
+    #formulaire__ville label {
       height: 100%;
       width: 25%;
       display: flex;
       justify-content: center;
       align-items: center; }
-    #formulaire__tel span .far {
+    #formulaire__ville input {
+      width: 40%; }
+    #formulaire__ville span .far {
+      color: green;
+      font-size: 25px;
+      margin-left: 50px; }
+  #formulaire__cp {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: auto; }
+    #formulaire__cp label {
+      height: 100%;
+      width: 25%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+    #formulaire__cp input {
+      width: 40%; }
+    #formulaire__cp span .far {
       color: green;
       font-size: 25px;
       margin-left: 50px; }

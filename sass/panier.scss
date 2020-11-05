@@ -230,8 +230,15 @@ header {
     flex-direction: column;
     background-color: $color-form;
     border-radius: 20px;
+    span{
+        font-size: 12px;
+        @include center;
+        height: 100%;
+        width: 35%;
+    }
     &__nom{
         width: 100%;
+        
         display: flex;
         align-items: center;
         margin: auto;
@@ -239,6 +246,10 @@ header {
             height: 100%;
             width: 25%;
             @include center;
+            
+        }
+        input {
+            width: 40%;
         }
         span .far {
             color: green;
@@ -256,6 +267,9 @@ header {
             width: 25%;
             @include center;
         }
+        input {
+            width: 40%;
+        }
         span .far {
                 color: green;
                 font-size: 25px;
@@ -272,14 +286,16 @@ header {
             width: 25%;
             @include center;
         }
+        input {
+            width: 40%;
+        }
         span .far {
             color: green;
             font-size: 25px;
             margin-left: 50px;
         }
     }
-    &__tel{
-        
+    &__ville{
         width: 100%;
         display: flex;
         align-items: center;
@@ -288,6 +304,28 @@ header {
             height: 100%;
             width: 25%;
             @include center;
+        }
+        input {
+            width: 40%;
+        }
+        span .far {
+            color: green;
+            font-size: 25px;
+            margin-left: 50px;
+        }
+    }
+    &__cp{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin: auto;
+        label{
+            height: 100%;
+            width: 25%;
+            @include center;
+        }
+        input {
+            width: 40%;
         }
         span .far {
             color: green;

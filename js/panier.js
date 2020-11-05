@@ -3,6 +3,7 @@ const $table = document.querySelector('.table');
 const arrayTot = [];
 
 
+
 const fetchTeddies = async () => {
     let teddies = await fetch('http://localhost:3000/api/teddies')
      .then(res => res.json()); 
@@ -48,6 +49,8 @@ const addProducts = () => {
             const $tdPrix = document.createElement('p');
             const $tdTotal = document.createElement('p');
             $tdPrix.innerText = 'Prix total';
+            
+
             $tdTotal.innerText = product.total + ' €';
 
             $tableTr.appendChild($tableTd2);
@@ -71,28 +74,8 @@ const addProducts = () => {
             $btnProduct.className  = 'table__td__btnProduct'
             $btnProduct.addEventListener("click", function(){
                 document.location.href = 'produit.html?id=' + product.productId;
-            });
-            
-        
-            
-        /*$btnClear.click(function(){
-            let productId = product.productId;
-            let storageProducts = JSON.parse(localStorage.getItem('products'));
-            let products = storageProducts.filter(product => product.productId !== productId );
-            localStorage.setItem('products', JSON.stringify(products));
-        });
-
-        $divTotal = document.createElement('div');
-            $smTotal = document.createElement('p');
-            $wrapper.appendChild($divTotal)
-            $divTotal.appendChild($smTotal)
-            $total = document.querySelectorAll('.table__td__montant')
-            $smTotal.innerText = 'Montant total du panier : ' + montant + ' €';
-
-        */
-       
-       }
-        
+            });      
+    }    
 }
 addProducts();
 
@@ -104,19 +87,22 @@ const $clear = document.querySelector('#ordre__clear');
 });
 
 
-let formValid = document.getElementById('bouton_envoi');
+let formValid = document.getElementById('ordre__validation');
 let nom = document.getElementById('nom');
 let prenom = document.getElementById('prenom');
 let email = document.getElementById('mail');
-let tel = document.getElementById('tel');
+let ville = document.getElementById('ville');
+let cp = document.getElementById('cp');
 let missNom = document.getElementById('missNom');
 let missPrenom = document.getElementById('missPrenom');
 let missEmail = document.getElementById('missEmail');
-let missTel = document.getElementById('missTel');
+let missVille = document.getElementById('missVille');
+let missCp = document.getElementById('missCp');
 let nomValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
 let prenomValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
 let emailValid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-let telValid = /^0\d(\s|-)?(\d{2}(\s|-)?){4}$/;
+let villeValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+let cpValid = /^(([0-8][0-9])|(9[0-5]))[0-9]{3}$/;
             
 formValid.addEventListener('click', validation);
             
@@ -161,18 +147,37 @@ function validation(event){
     }else{
         missEmail.innerHTML = `<i class="far fa-thumbs-up"></i>`
     }
-    //Si le champ telephone est vide
-      if (tel.validity.valueMissing){
+    //Si le champ ville est vide
+      if (ville.validity.valueMissing){
         event.preventDefault();
-        missTel.textContent = 'Téléphone manquant';
-        missTel.style.color = 'red';
+        missVille.textContent = 'Commune manquante';
+        missVille.style.color = 'red';
     //Si le format de données est incorrect
-    }else if (telValid.test(tel.value) == false){
+    }else if (villeValid.test(ville.value) == false){
         event.preventDefault();
-        missTel.textContent = 'Format incorrect';
-        missTel.style.color = 'orange';
+        missVille.textContent = 'Format incorrect';
+        missVille.style.color = 'orange';
     }else{
-        missTel.innerHTML = `<i class="far fa-thumbs-up"></i>`
+        missVille.innerHTML = `<i class="far fa-thumbs-up"></i>`
     }
+    //Si le champ cp est vide
+    if (cp.validity.valueMissing){
+        event.preventDefault();
+        missCp.textContent = 'Code postal manquant';
+        missCp.style.color = 'red';
+    //Si le format de données est incorrect
+    }else if (cpValid.test(cp.value) == false){
+        event.preventDefault();
+        missCp.textContent = 'Format incorrect';
+        missCp.style.color = 'orange';
+    }else{
+        missCp.innerHTML = `<i class="far fa-thumbs-up"></i>`
+    }
+    
     event.preventDefault()
+    let data = [FormData, products];
+    console.log(data)
+    
+        let response = fetch('http://localhost:3000/api/teddies')
+   
 }
