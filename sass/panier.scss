@@ -105,13 +105,16 @@ header {
 #main_wrapper{
     @include center;
     flex-direction: column;
-    height: 1000px;
+   
 }
 
-#empty{
+.empty{
     height: 300px;
     width: 400px;
     @include center;
+    &__h2{
+        font-size: 35px;
+    }
 }
 
 .table {
@@ -254,7 +257,7 @@ header {
         span .far {
             color: green;
             font-size: 25px;
-            margin-left: 50px;
+            margin-left: 20px;
         }
     }
     &__prenom{
@@ -273,7 +276,7 @@ header {
         span .far {
                 color: green;
                 font-size: 25px;
-                margin-left: 50px;
+                margin-left: 20px;
         }
     }
     &__email{
@@ -292,7 +295,7 @@ header {
         span .far {
             color: green;
             font-size: 25px;
-            margin-left: 50px;
+            margin-left: 20px;
         }
     }
     &__ville{
@@ -311,7 +314,7 @@ header {
         span .far {
             color: green;
             font-size: 25px;
-            margin-left: 50px;
+            margin-left: 20px;
         }
     }
     &__cp{
@@ -330,7 +333,7 @@ header {
         span .far {
             color: green;
             font-size: 25px;
-            margin-left: 50px;
+            margin-left: 20px;
         }
     }
     form {
@@ -341,6 +344,11 @@ header {
     input{
         margin: 10px;
     }
+}
+
+.table__total{
+    @include center;
+    font-size: 20px;
 }
 
 

@@ -1,6 +1,6 @@
 const $wrapper = document.querySelector('#main_wrapper');
 const $table = document.querySelector('.table');
-const arrayTot = [];
+let total = 0;
 
 
 
@@ -16,6 +16,16 @@ const fetchTeddies = async () => {
 
 const addProducts = () => {
         let products = JSON.parse(localStorage.getItem('products'));
+        if(!products) {
+            const $divEmpty = document.createElement('div');
+            const $h2Empty = document.createElement('h2'); 
+            $h2Empty.innerText = 'Votre panier est vide !';
+            $table.appendChild($divEmpty);
+            $divEmpty.appendChild($h2Empty);  
+            $h2Empty.className  = 'empty__h2'
+            $divEmpty.className  = 'empty'
+            return
+        }
         for(let i = 0; i < products.length; i++) {   // création d'une boucle équivalente aux nombres de produit //
             const product = products[i];
             const $tableTr = document.createElement('tr');
@@ -49,35 +59,38 @@ const addProducts = () => {
             const $tdPrix = document.createElement('p');
             const $tdTotal = document.createElement('p');
             $tdPrix.innerText = 'Prix total';
-            
-
             $tdTotal.innerText = product.total + ' €';
-
             $tableTr.appendChild($tableTd2);
             $tableTd2.appendChild($tdPrix);
             $tableTd2.appendChild($tdTotal);
             $tableTd2.className  = 'table__td__prix'
             $tdTotal.className  = 'table__td__total'
-            $tdPrix.className  = 'table__td__montant'           
-
+            $tdPrix.className  = 'table__td__montant'       
+            total += product.total;    
 
             const $tableTd3 = document.createElement('td');
-            const $btnClear = document.createElement('div');
             const $btnProduct = document.createElement('div');
             $tableTr.appendChild($tableTd3);
-            $tableTd3.appendChild($btnClear);
             $tableTd3.appendChild($btnProduct);
-            $btnClear.innerHTML = `<i class="far fa-times-circle"></i>`
             $btnProduct.innerHTML = `<i class="fas fa-info-circle"></i>`
             $tableTd3.className  = 'table__td__buttons'
-            $btnClear.className  = 'table__td__btnClear'
             $btnProduct.className  = 'table__td__btnProduct'
             $btnProduct.addEventListener("click", function(){
                 document.location.href = 'produit.html?id=' + product.productId;
-            });      
+            });     
     }    
+        const $divTotal = document.createElement('div');
+        const $h2TotCmd = document.createElement('h2'); 
+        $h2TotCmd.innerText = 'Total de votre commande : ' + total + ' €';
+        $table.appendChild($divTotal);
+        $divTotal.appendChild($h2TotCmd);  
+        $h2TotCmd.className  = 'table__total__h2'
+        $divTotal.className  = 'table__total'
 }
+
 addProducts();
+
+console.log(total);
 
 const $clear = document.querySelector('#ordre__clear');
     $clear.addEventListener("click", function(){
@@ -107,14 +120,13 @@ let cpValid = /^(([0-8][0-9])|(9[0-5]))[0-9]{3}$/;
 formValid.addEventListener('click', validation);
             
 function validation(event){
+    event.preventDefault()
     //Si le champ nom est vide
     if (nom.validity.valueMissing){
-        event.preventDefault();
         missNom.textContent = 'Nom manquant';
         missNom.style.color = 'red';
     //Si le format de données est incorrect
     }else if (nomValid.test(nom.value) == false){
-        event.preventDefault();
         missNom.textContent = 'Format incorrect';
         missNom.style.color = 'orange';
     }else{
@@ -122,12 +134,12 @@ function validation(event){
     }
     //Si le champ prenom est vide
     if (prenom.validity.valueMissing){
-        event.preventDefault();
+        
         missPrenom.textContent = 'Prénom manquant';
         missPrenom.style.color = 'red';
     //Si le format de données est incorrect
     }else if (prenomValid.test(prenom.value) == false){
-        event.preventDefault();
+        
         missPrenom.textContent = 'Format incorrect';
         missPrenom.style.color = 'orange';
     }else{
@@ -136,12 +148,12 @@ function validation(event){
 
     //Si le champ email est vide
     if (email.validity.valueMissing){
-        event.preventDefault();
+        
         missEmail.textContent = 'e-mail manquant';
         missEmail.style.color = 'red';
     //Si le format de données est incorrect
     }else if (emailValid.test(email.value) == false){
-        event.preventDefault();
+        
         missEmail.textContent = 'Format incorrect';
         missEmail.style.color = 'orange';
     }else{
@@ -149,12 +161,12 @@ function validation(event){
     }
     //Si le champ ville est vide
       if (ville.validity.valueMissing){
-        event.preventDefault();
+       
         missVille.textContent = 'Commune manquante';
         missVille.style.color = 'red';
     //Si le format de données est incorrect
     }else if (villeValid.test(ville.value) == false){
-        event.preventDefault();
+       
         missVille.textContent = 'Format incorrect';
         missVille.style.color = 'orange';
     }else{
@@ -162,22 +174,15 @@ function validation(event){
     }
     //Si le champ cp est vide
     if (cp.validity.valueMissing){
-        event.preventDefault();
+        
         missCp.textContent = 'Code postal manquant';
         missCp.style.color = 'red';
     //Si le format de données est incorrect
     }else if (cpValid.test(cp.value) == false){
-        event.preventDefault();
+        
         missCp.textContent = 'Format incorrect';
         missCp.style.color = 'orange';
     }else{
         missCp.innerHTML = `<i class="far fa-thumbs-up"></i>`
     }
-    
-    event.preventDefault()
-    let data = [FormData, products];
-    console.log(data)
-    
-        let response = fetch('http://localhost:3000/api/teddies')
-   
 }
