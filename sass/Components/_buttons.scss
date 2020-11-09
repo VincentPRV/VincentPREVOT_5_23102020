@@ -1,0 +1,16 @@
+#ordre{
+    width: 100%;
+    height: 200px;
+    @include center;
+    &__validation {
+        @include linearGradient;
+        @include btnOrder;
+        color: white;
+        border-style: none;
+    }
+    &__clear {
+        @include btnOrder;
+        color: black;
+        background-color: $color-primary;
+    }
+}

@@ -1,0 +1,119 @@
+#formulaire{
+    font-family: sans-serif;
+    @include center;
+    width: 500px;
+    flex-direction: column;
+    background-color: $color-form;
+    border-radius: 20px;
+    span{
+        font-size: 12px;
+        @include center;
+        height: 100%;
+        width: 35%;
+    }
+    &__nom{
+        width: 100%;
+        
+        display: flex;
+        align-items: center;
+        margin: auto;
+        label{
+            height: 100%;
+            width: 25%;
+            @include center;
+            
+        }
+        input {
+            width: 40%;
+        }
+        span .far {
+            color: green;
+            font-size: 25px;
+            margin-left: 20px;
+        }
+    }
+    &__prenom{
+        width: 100%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        label{
+            height: 100%;
+            width: 25%;
+            @include center;
+        }
+        input {
+            width: 40%;
+        }
+        span .far {
+                color: green;
+                font-size: 25px;
+                margin-left: 20px;
+        }
+    }
+    &__email{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin: auto;
+        label{
+            height: 100%;
+            width: 25%;
+            @include center;
+        }
+        input {
+            width: 40%;
+        }
+        span .far {
+            color: green;
+            font-size: 25px;
+            margin-left: 20px;
+        }
+    }
+    &__ville{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin: auto;
+        label{
+            height: 100%;
+            width: 25%;
+            @include center;
+        }
+        input {
+            width: 40%;
+        }
+        span .far {
+            color: green;
+            font-size: 25px;
+            margin-left: 20px;
+        }
+    }
+    &__address{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin: auto;
+        label{
+            height: 100%;
+            width: 25%;
+            @include center;
+        }
+        input {
+            width: 40%;
+        }
+        span .far {
+            color: green;
+            font-size: 25px;
+            margin-left: 20px;
+        }
+    }
+    form {
+        @include center;
+        flex-direction: column;
+        width: 100%;
+    }
+    input{
+        margin: 10px;
+    }
+}

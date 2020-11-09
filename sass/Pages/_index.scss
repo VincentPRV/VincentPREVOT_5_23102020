@@ -1,0 +1,37 @@
+@media all and (max-width: 900px){
+    body {
+        font-size: 13px;
+        max-width: $mqsize900;
+    }
+    header {
+        font-size: 10px;
+        max-width: $mqsize900;
+        img {
+            width: 250px;
+        }
+        .nav {
+            font-size: 30px;
+        }
+    }
+}
+@media all and (max-device-width: 480px){
+    body {      
+        max-width: $mqsize480;
+    }
+    header {
+        max-width: $mqsize480;
+        img {
+            width: 80px;
+        }
+        .nav {
+            font-size: 15px;
+            li {
+                margin: 5px;
+            }
+        }
+    }
+    .product {
+        font-size: 10px;
+        @include crdSizeMQ;
+    }
+}

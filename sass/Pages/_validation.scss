@@ -1,0 +1,15 @@
+.validation__message{
+    text-align: center;
+    width: 100%;
+    height: 550px;
+    h2 {
+        font-size: 80px;
+        background: -webkit-linear-gradient($color-secondary, $color-tertiary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    p {
+        font-size: 20px;
+        font-family: sans-serif;
+    }
+}

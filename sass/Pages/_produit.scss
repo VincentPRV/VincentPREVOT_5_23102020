@@ -1,0 +1,72 @@
+@media all and (max-width: 900px){
+    body {
+        font-size: 13px;
+        max-width: $mqsize900;
+    }
+    header {
+        max-width: $mqsize900;
+        img {
+            width: 250px;
+        }
+        .nav {
+            font-size: 30px;
+        }
+    }
+    .produit {
+        &__header{
+            &__name{
+                font-size: 50px;
+            }
+            &__price{
+                font-size: 40px;
+            }
+        }
+        font-size: 16px;
+        @include crdSizeMQ900;
+        &__cmd{
+            &__total{
+                font-size: 35px;
+            }
+        }
+    }
+    footer{
+        font-size: 15px;
+    }
+}
+@media all and (max-device-width: 480px){
+    body {      
+        max-width: $mqsize480;
+    }
+    header {
+        max-width: $mqsize480;
+        img {
+            width: 80px;
+        }
+        .nav {
+            font-size: 15px;
+            li {
+                margin: 5px;
+            }
+        }
+    }
+    .produit {
+        &__header{
+            &__name{
+                font-size: 30px;
+            }
+            &__price{
+                font-size: 20px;
+            }
+        }
+        font-size: 10px;
+        @include crdSizeMQ480;
+        &__cmd{
+            &__total{
+                font-size: 25px;
+            }
+        }
+    }
+    footer{
+        font-size: 15px;
+    }
+}

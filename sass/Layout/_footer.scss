@@ -1,0 +1,22 @@
+footer{
+    width: 100%;
+}
+.footer_info {
+    background-color: black;
+    color: white;
+    display: flex;
+    height: 200px;
+    font-family: sans-serif;
+    ul {
+        list-style-type: none;
+     
+        line-height: 30px;
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    }
+    img {
+        width: 125px;
+    }
+}

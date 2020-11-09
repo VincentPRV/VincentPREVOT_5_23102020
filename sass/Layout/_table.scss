@@ -1,0 +1,67 @@
+.table {
+    padding: 50px; 
+    tr{
+        @include center;
+        height: 150px;
+        margin-bottom: 15px;
+        padding: 5px;
+        border-top: $color-table solid 1px; 
+        border-bottom: $color-table solid 1px;
+    }      
+}
+.table__th {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 200px;
+    height: 100%;
+    &__name {
+        font-size: 30px;
+        margin: auto;
+    }
+    &__img {
+        height: 120px;
+    }
+}
+.table__td {
+    &__info{
+        width: 150px;
+        @include panierParams;
+    }
+    &__option{
+        @include ctrText;
+    }
+    &__qte {
+        @include ctrText;
+    }
+    &__prix{
+        width: 125px;
+        @include panierParams;
+    }
+    &__total{
+        @include ctrText;
+        font-weight: bold;
+    }
+    &__montant{
+        @include ctrText;
+        text-transform: uppercase;
+    }
+    &__buttons{
+        width: 250px;
+        @include panierParams;
+    }
+    &__btnClear{
+        @include btnPanier;
+        margin-bottom: 10px;
+        background-color: red;
+    }
+    &__btnProduct{
+        @include btnPanier;
+        @include linearGradient;
+        margin-top: 10px;
+    }
+}
+.table__total{
+    @include center;
+    font-size: 30px;
+}
