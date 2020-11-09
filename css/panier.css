@@ -288,4 +288,150 @@ header {
   align-items: center;
   font-size: 30px; }
 
+@media all and (max-width: 900px) {
+  body {
+    font-size: 13px;
+    max-width: 700px; }
+
+  #main_wrapper {
+    width: 700px; }
+
+  .table {
+    padding: 50px; }
+    .table__total__h2 {
+      font-size: 35px; }
+
+  .table__th {
+    width: 200px; }
+
+  .table__td__info {
+    width: 100px; }
+  .table__td__prix {
+    width: 75px; }
+  .table__td__buttons {
+    width: 150px; }
+
+  header {
+    font-size: 10px;
+    max-width: 700px; }
+    header img {
+      width: 250px; }
+    header .nav {
+      font-size: 30px; } }
+@media all and (max-device-width: 480px) {
+  body {
+    max-width: 320px; }
+
+  header {
+    max-width: 320px; }
+    header img {
+      width: 80px; }
+    header .nav {
+      font-size: 15px; }
+      header .nav li {
+        margin: 5px; }
+
+  #main_wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+
+  .table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5px;
+    width: 100%; }
+    .table tr {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 250px;
+      height: 70px; }
+    .table__th {
+      height: 60px;
+      width: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .table__th__name {
+        font-size: 15px; }
+      .table__th__img {
+        width: auto;
+        height: 30px; }
+    .table__td__info {
+      width: 60px; }
+    .table__td__option {
+      font-size: 10px; }
+    .table__td__qte {
+      font-size: 10px; }
+    .table__td__prix {
+      width: 60px; }
+    .table__td__montant {
+      font-size: 10px; }
+    .table__td__total {
+      font-size: 10px; }
+    .table__td__buttons {
+      width: 50px; }
+    .table__td__btnProduct {
+      font-size: 20px; }
+    .table__total__h2 {
+      font-size: 20px; }
+
+  #formulaire {
+    width: 280px;
+    font-size: 10px; }
+    #formulaire span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 10px;
+      text-align: center;
+      height: 100%;
+      width: 35%; }
+    #formulaire__nom input {
+      font-size: 10px; }
+    #formulaire__nom span .far {
+      font-size: 15px;
+      margin-left: 10px; }
+    #formulaire__prenom input {
+      font-size: 10px; }
+    #formulaire__prenom span .far {
+      font-size: 15px;
+      margin-left: 10px; }
+    #formulaire__email input {
+      font-size: 10px; }
+    #formulaire__email span .far {
+      font-size: 15px;
+      margin-left: 10px; }
+    #formulaire__ville input {
+      font-size: 10px; }
+    #formulaire__ville span .far {
+      font-size: 15px;
+      margin-left: 10px; }
+    #formulaire__address input {
+      font-size: 10px; }
+    #formulaire__address span .far {
+      font-size: 15px;
+      margin-left: 10px; }
+
+  #ordre {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    padding: 20px 0px 20px 0px; }
+    #ordre__validation {
+      width: 150px;
+      height: 30px;
+      font-size: 16px;
+      margin: 5px; }
+    #ordre__clear {
+      width: 150px;
+      height: 30px;
+      font-size: 16px;
+      margin: 5px; } }
+
 /*# sourceMappingURL=panier.css.map */

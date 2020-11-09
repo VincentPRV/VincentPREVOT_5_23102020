@@ -1,7 +1,8 @@
 $color-primary: #f3e9f1;
 $color-secondary: #e58a0c;
 $color-border: #37474F;
-
+$mqsize900: 700px;
+$mqsize480: 320px;
 
 @mixin center {
     display: flex;
@@ -12,6 +13,11 @@ $color-border: #37474F;
 @mixin crdSize {
     width: 400px;
     height: 400px;
+}
+
+@mixin crdSizeMQ {
+    width: 250px;
+    height: 250px;
 }
 
 @mixin crdBorder {
@@ -32,10 +38,11 @@ $color-border: #37474F;
 body {
    font-size: 16px;
    font-family: 'meghans';
-   display: flex;
+   @include center;
+   margin: auto;
    flex-direction: column;
    height: 100%;
-   width: 100%;
+   max-width: 1500px;
 }
 
 header {
@@ -43,6 +50,7 @@ header {
     justify-content: space-around;
     align-items: center;
     background-color: $color-primary;
+    width: 100%;
 }
 
 .nav {
@@ -77,7 +85,6 @@ header {
 }
 
 .product {
-  
     border-radius: 10px;
     margin: 15px;
     overflow: hidden;
@@ -141,6 +148,10 @@ header {
     }
 }
 
+footer{
+    width: 100%;
+}
+
 .footer_info {
     background-color: black;
     color: white;
@@ -159,4 +170,51 @@ header {
     img {
         width: 125px;
     }
+}
+
+
+@media all and (max-width: 900px){
+
+    body {
+        font-size: 13px;
+        max-width: $mqsize900;
+    }
+
+    header {
+        font-size: 10px;
+        max-width: $mqsize900;
+        img {
+            width: 250px;
+        }
+        .nav {
+            font-size: 30px;
+        }
+    }
+}
+
+
+@media all and (max-device-width: 480px){
+
+    body {      
+        max-width: $mqsize480;
+    }
+     
+    header {
+        max-width: $mqsize480;
+        img {
+            width: 80px;
+        }
+        .nav {
+            font-size: 15px;
+            li {
+                margin: 5px;
+            }
+        }
+    }
+
+    .product {
+        font-size: 10px;
+        @include crdSizeMQ;
+    }
+    
 }

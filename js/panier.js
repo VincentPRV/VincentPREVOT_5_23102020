@@ -208,7 +208,6 @@ function validation(event){
             contact: contact,
             products: productId,   
         };
-        console.log(objAEnvoyer)
        
         fetch("http://localhost:3000/api/teddies/order", {
             method: 'POST',            

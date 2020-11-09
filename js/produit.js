@@ -5,7 +5,6 @@ const $cmd = document.querySelector('.produit__cmd');
 
 
 const params = new URLSearchParams(urlPage);
-console.log(params)
 let id;
 
 for (let param of params){

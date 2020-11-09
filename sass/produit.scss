@@ -1,7 +1,8 @@
 $color-primary: #f3e9f1;
 $color-secondary: #e58a0c;
 $color-border: #37474F;
-
+$mqsize900: 700px;
+$mqsize480: 320px;
 
 @mixin center {
     display: flex;
@@ -22,6 +23,16 @@ $color-border: #37474F;
     font-weight: bold;
 }
 
+@mixin crdSizeMQ480 {
+    width: 300px;
+    height: 300px;
+}
+
+@mixin crdSizeMQ900 {
+    width: 500px;
+    height: 500px;
+}
+
 @font-face {
     font-family: 'meghans';
     src: url('../Fonts/meghansfont.ttf') format('truetype');
@@ -30,17 +41,21 @@ $color-border: #37474F;
 }
 
 body {
-   font-size: 16px;
-   font-family: 'meghans';
-   display: flex;
-   flex-direction: column;
-}
+    font-size: 16px;
+    font-family: 'meghans';
+    @include center;
+    margin: auto;
+    flex-direction: column;
+    height: 100%;
+    max-width: 1500px;
+ }
 
 header {
     display: flex;
     justify-content: space-around;
     align-items: center;
     background-color: $color-primary;
+    width: 100%;
 }
 
 .nav {
@@ -147,6 +162,9 @@ header {
 
 }
 
+footer{
+    width: 100%;
+}
 .footer_info {
     background-color: black;
     color: white;
@@ -163,5 +181,87 @@ header {
     }
     img {
         width: 125px;
+    }
+}
+
+
+@media all and (max-width: 900px){
+
+    body {
+        font-size: 13px;
+        max-width: $mqsize900;
+    }
+
+    header {
+        max-width: $mqsize900;
+        img {
+            width: 250px;
+        }
+        .nav {
+            font-size: 30px;
+        }
+    }
+
+    .produit {
+        &__header{
+            &__name{
+                font-size: 50px;
+            }
+            &__price{
+                font-size: 40px;
+            }
+        }
+        font-size: 16px;
+        @include crdSizeMQ900;
+        &__cmd{
+            &__total{
+                font-size: 35px;
+            }
+        }
+    }
+    footer{
+        font-size: 15px;
+    }
+}
+
+
+@media all and (max-device-width: 480px){
+
+    body {      
+        max-width: $mqsize480;
+    }
+     
+    header {
+        max-width: $mqsize480;
+        img {
+            width: 80px;
+        }
+        .nav {
+            font-size: 15px;
+            li {
+                margin: 5px;
+            }
+        }
+    }
+
+    .produit {
+        &__header{
+            &__name{
+                font-size: 30px;
+            }
+            &__price{
+                font-size: 20px;
+            }
+        }
+        font-size: 10px;
+        @include crdSizeMQ480;
+        &__cmd{
+            &__total{
+                font-size: 25px;
+            }
+        }
+    }
+    footer{
+        font-size: 15px;
     }
 }
