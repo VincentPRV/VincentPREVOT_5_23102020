@@ -1,8 +1,7 @@
+/* récupération de l'ID du produit selectionné */
 const urlPage = window.location.href;
 const productDetail = document.querySelector('.produit__detail');
 const $cmd = document.querySelector('.produit__cmd');
-
-
 
 const params = new URLSearchParams(urlPage);
 let id;
@@ -21,15 +20,14 @@ const fetchTeddies = async () => {      // récupération des données serveur p
      }
  };
 
- fetchTeddies();
+ fetchTeddies(); /* lancement au chargement de la requête */
 
- const selectTeddy = (teddy) => {
-
+ const selectTeddy = (teddy) => { /* création de la fiche produit de l'ID correspondant à l'URL */
     if (teddy._id === id) {
         const $product = document.createElement('div'); 
-        const $header = document.createElement('div');
+        const $header = document.createElement('div'); /* nom */
         const $h3 = document.createElement('h3');
-        $h3.innerText = teddy.name;
+        $h3.innerText = teddy.name; 
         $product.appendChild($header);
         $header.appendChild($h3);
         $header.className  = 'produit__header'
@@ -37,12 +35,12 @@ const fetchTeddies = async () => {      // récupération des données serveur p
         $h3.className  = 'produit__header__name'
         productDetail.appendChild($product);
     
-        const $price = document.createElement('p');
+        const $price = document.createElement('p');  /* prix */
         $price.innerText = teddy.price / 100 + '€';
         $header.appendChild($price);
         $price.className  = 'produit__header__price'
         
-        const $content = document.createElement('div');
+        const $content = document.createElement('div');  /* image */
         const $image = document.createElement('img');
         $content.className  = 'produit__content'
         $image.className  = 'produit__content__image'
@@ -50,19 +48,18 @@ const fetchTeddies = async () => {      // récupération des données serveur p
         $content.appendChild($image);
         $product.appendChild($content);
      
-        const $description = document.createElement('p');
+        const $description = document.createElement('p');  /* description */
         $description.innerText = teddy.description;
         $content.appendChild($description);
         $description.className  = 'produit__content__description'
 
-        
         const $select = document.createElement('select');
         const $footer = document.createElement('div');
         $product.appendChild($footer);
         $footer.appendChild($select);
        
         $footer.className = 'produit__footer'
-        $select.className = 'produit__footer__select'
+        $select.className = 'produit__footer__select' /* selecteur d'options possible */
         for (var i = 0; i < teddy.colors.length; i++) {
             var $option = document.createElement("option");
             $option.value = teddy.colors[i];
@@ -70,7 +67,7 @@ const fetchTeddies = async () => {      // récupération des données serveur p
             $select.appendChild($option);
         }
 
-        const $choice = document.createElement('select');
+        const $choice = document.createElement('select'); /* selecteur pour la quantité voulu */
         const $qte = document.createElement('div');
         const $textQte = document.createElement('p');
         $cmd.appendChild($qte);
@@ -86,7 +83,7 @@ const fetchTeddies = async () => {      // récupération des données serveur p
         }
         
         const $total = document.createElement('p');
-        const $divTotal = document.createElement('div');
+        const $divTotal = document.createElement('div');    /* prix selon les choix */
         $divTotal.className = 'produit__cmd__total';
         $divTotal.appendChild($total),
         $cmd.appendChild($divTotal);
@@ -100,7 +97,7 @@ const fetchTeddies = async () => {      // récupération des données serveur p
         
         
         const $btn = document.createElement('button');
-        const $divBtn = document.createElement('div');
+        const $divBtn = document.createElement('div'); /* button de commande qui rajoute l'objet au localStorage et envoi à la page panier */
         $divBtn.appendChild($btn);
         $cmd.appendChild($divBtn);
         $divBtn.className = 'produit__cmd__btn'
@@ -109,8 +106,7 @@ const fetchTeddies = async () => {      // récupération des données serveur p
             let products = [];
             if($choice.value > 0){
                  if(localStorage.getItem('products')){
-                products = JSON.parse(localStorage.getItem('products'));
-                
+                products = JSON.parse(localStorage.getItem('products'));   
             }
             products.push({_id : id, image : teddy.imageUrl, name : teddy.name, couleur : $select.value, total : $choice.value * teddy.price / 100, quantite : $choice.value});
             localStorage.setItem('products', JSON.stringify(products));
@@ -121,5 +117,3 @@ const fetchTeddies = async () => {      // récupération des données serveur p
         );
     }
 }
-
-
