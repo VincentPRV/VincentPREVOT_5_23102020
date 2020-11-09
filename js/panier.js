@@ -2,8 +2,8 @@ const $wrapper = document.querySelector('#main_wrapper');
 const $table = document.querySelector('.table');
 let total = 0;
 let contact = {
-    firstname:'',
-    lastname:'',
+    firstName:'',
+    lastName:'',
     address:'',
     city:'',
     email:'',
@@ -109,7 +109,7 @@ addProducts();
 const $clear = document.querySelector('#ordre__clear');
     $clear.addEventListener("click", function(){
     localStorage.clear();
-    alert("Votre pannier est maintenant vide !")
+    alert("Votre panier est maintenant vide !")
     document.location.href = 'panier.html'
 });
 
@@ -184,7 +184,7 @@ function validation(event){
     }
     //Si le champ address est vide
     if (address.validity.valueMissing){
-        missAddress.textContent = 'Code postal manquant';
+        missAddress.textContent = 'Adresse manquante';
         missAddress.style.color = 'red';        
     //Si le format de données est incorrect
     }else if (addressValid.test(address.value) == false){
@@ -195,8 +195,8 @@ function validation(event){
         
     }
     if (nomValid.test(nom.value) == true && addressValid.test(address.value) == true && villeValid.test(ville.value) == true && emailValid.test(email.value) == true && prenomValid.test(prenom.value) == true) {
-        contact.firstname = nom.value
-        contact.lastname = prenom.value
+        contact.firstName = nom.value
+        contact.lastName = prenom.value
         contact.email = email.value
         contact.city = ville.value
         contact.address = address.value
@@ -206,22 +206,27 @@ function validation(event){
 
         let objAEnvoyer = {
             contact: contact,
-            products: productId,
-              
+            products: productId,   
         };
-       
         console.log(objAEnvoyer)
+       
         fetch("http://localhost:3000/api/teddies/order", {
-            method: "POST",
-            body: objAEnvoyer,
-            contentType: "application/json"
+            method: 'POST',            
+            headers: {
+                'Content-Type': 'application/json'
+              },
+            body: JSON.stringify(objAEnvoyer) 
           }).then(response => {
                 console.log(response);
                 response.json().then(function(json) {
                 console.log(json);
+                let orderId = json.orderId;
+                console.log(orderId)
+                document.location.href = 'validation.html?id=' + orderId;  
             });
           }).catch(error => {
                 console.log(error);
           })
+          
     }
 }

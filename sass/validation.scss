@@ -1,0 +1,148 @@
+$color-primary: #f3e9f1;
+$color-secondary: #e58a0c;
+$color-border: #37474F;
+$color-tertiary: #8f5bfe;
+$color-table: #B0BEC5;
+$color-form: #F5F5F5;
+
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin crdSize {
+    width: 400px;
+    height: 400px;
+}
+
+@mixin PrdSize {
+    width: 800px;
+    height: 800px;
+}
+@mixin btnOrder {
+    height: 50px;
+    width: 200px;
+    border-radius: 20px;
+    margin: 50px;
+    border-style: none;
+    font-family: 'meghans';
+    font-size: 25px;
+}
+@mixin btnPanier {
+    font-size: 30px;
+    border-radius: 50%;    
+    @include center;
+    overflow: hidden;
+    color: white;
+}
+@mixin panierParams {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+@mixin crdBorder {
+    border: $color-border solid 1px;
+}
+
+@mixin gras {
+    font-weight: bold;
+}
+
+@mixin linearGradient {
+    background: linear-gradient($color-secondary, $color-tertiary);
+}
+
+@mixin tableBrd {
+    border-top: #B0BEC5 1px solid;
+    border-bottom: #B0BEC5 1px solid;
+}
+
+@mixin ctrText {
+    width: 100%;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-align: center;
+}
+@font-face {
+    font-family: 'meghans';
+    src: url('../Fonts/meghansfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'meghans';
+    display: flex;
+    flex-direction: column;   
+    
+}
+
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: $color-primary;
+}
+
+#main_wrapper {
+    height: 31.5vw;
+}
+.nav {
+    font-size: 40px;
+    &__ul{
+        display: flex;
+        list-style-type: none;
+        li{
+            margin: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    }
+}
+
+#main_wrapper{
+    @include center;
+    flex-direction: column;   
+}
+
+.validation__message{
+    text-align: center;
+    width: 100%;
+    h2 {
+        font-size: 80px;
+        background: -webkit-linear-gradient($color-secondary, $color-tertiary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        
+    }
+    p {
+        font-size: 20px;
+        font-family: sans-serif;
+    }
+}
+
+.footer_info {
+    background-color: black;
+    color: white;
+    display: flex;
+    height: 200px;
+    font-family: sans-serif;
+    ul {
+        list-style-type: none;
+        line-height: 30px;
+        a {
+            text-decoration: none;
+            color: $color-primary;
+        }
+    }
+    img {
+        width: 125px;
+    }
+}
