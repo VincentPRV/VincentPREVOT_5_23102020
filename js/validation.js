@@ -9,7 +9,6 @@ for (let param of params){
    id = param[1];
 }
 
-
 const createMessage = () => {
     const $message = document.querySelector('.validation__message'); // création d'un message de remerciement et confirmation de la commande //
     const $messageH2 = document.createElement('h2');

@@ -3,7 +3,6 @@
 const fetchTeddies = async () => {      // récupération des données serveur pour les teddies //
    let teddies = await fetch('http://localhost:3000/api/teddies')
     .then(res => res.json());
-    console.log(teddies);
 
     for(let i = 0; i < teddies.length; i++) {   // création d'une boucle équivalente aux nombres de produit //
         const teddy = teddies[i];

@@ -43,7 +43,7 @@ const addProducts = () => {
 // création du table avec les noms, images, quantité, prix total ainsi qu'un bouton information pour revenir à la page produit de l'ours en question //        
             const $tableTr = document.createElement('tr');
             const $tableTh = document.createElement('th');
-            const $tableP = document.createElement('p');
+            const $tableP = document.createElement('p');        // nom //
             $tableP.innerText = product.name;
             $table.appendChild($tableTr);
             $tableTr.appendChild($tableTh);
@@ -51,7 +51,7 @@ const addProducts = () => {
             $tableTh.className  = 'table__th'
             $tableP.className  = 'table__th__name'
 
-            const $tableThImg = document.createElement('img');
+            const $tableThImg = document.createElement('img');      // image //
             $tableThImg.src = product.image;
             $tableTh.appendChild($tableThImg);
             $tableThImg.className  = 'table__th__img'
@@ -59,7 +59,7 @@ const addProducts = () => {
             const $tableTd = document.createElement('td');
             const $tdOption = document.createElement('p');
             const $tdQte = document.createElement('p');
-            $tdOption.innerText = 'Option : ' + product.couleur;
+            $tdOption.innerText = 'Option : ' + product.couleur;        // selecteur d'option & quantité //
             $tdQte.innerText = 'Quantité : ' + product.quantite;
             $tableTr.appendChild($tableTd);
             $tableTd.appendChild($tdOption);
@@ -68,7 +68,7 @@ const addProducts = () => {
             $tdOption.className  = 'table__td__option'
             $tdQte.className  = 'table__td__qte'
 
-            const $tableTd2 = document.createElement('td');
+            const $tableTd2 = document.createElement('td');     // prix total //
             const $tdPrix = document.createElement('p');
             const $tdTotal = document.createElement('p');
             $tdPrix.innerText = 'Prix total';
@@ -82,7 +82,7 @@ const addProducts = () => {
             total += product.total;    
 
             const $tableTd3 = document.createElement('td');
-            const $btnProduct = document.createElement('div');
+            const $btnProduct = document.createElement('div');      // btn info (retour page produit) //
             $tableTr.appendChild($tableTd3);
             $tableTd3.appendChild($btnProduct);
             $btnProduct.innerHTML = `<i class="fas fa-info-circle"></i>`
@@ -211,15 +211,12 @@ function validation(event){
               },
             body: JSON.stringify(objAEnvoyer) /* conversion en JSON des données requis par le serveur */
           }).then(response => {
-                console.log(response);
                 response.json().then(function(json) {
-                console.log(json);
                 let orderId = json.orderId;
-                console.log(orderId)
-                document.location.href = 'validation.html?id=' + orderId;  
+                document.location.href = 'validation.html?id=' + orderId;  /* envoi de l'ID de la commande dans l'url de la page de validation */
             });
           }).catch(error => { /* enregistrement si erreur lors de l'envoi de données */
-                console.log(error);
+                alert(error);
           })   
     }
 }
